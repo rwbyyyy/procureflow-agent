@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ProcureFlow · Agent 实验室</title>
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/lab.css">
+    <script src="/static/lab.js" defer></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="/"><span class="brand-mark">P</span><span>ProcureFlow</span></a>
+      <nav class="lab-navigation" aria-label="演示导航">
+        <a class="nav" href="/">← <span>采购工作台</span></a>
+        <a class="nav active" href="/lab" aria-current="page">◫ <span>Agent 实验室</span></a>
+      </nav>
+    </aside>
+    <main>
+      <header class="topbar"><div class="crumb">ProcureFlow <span>/</span> Agent 实验室</div></header>
+      <div class="content">
+        <div class="intro"><div><h1>采购 Agent 评测</h1>
+          <p>比较工具失败后的任务恢复和上下文压缩。验收基于模拟库存、交期和预算。</p>
+        </div><a class="button secondary" href="/api/lab/trajectories">下载离线轨迹 JSONL</a></div>
+        <p id="loading" role="status">读取评测结果…</p>
+        <div id="report" hidden>
+          <section class="panel lab-panel" aria-labelledby="metrics-title">
+            <div class="panel-title"><h2 id="metrics-title">策略对照</h2>
+              <label class="lab-label">运行类型<select id="mode"></select></label></div>
+            <p id="mode-note" class="lab-note"></p>
+            <div class="table-scroll"><table>
+              <thead><tr><th scope="col">策略</th><th scope="col">通过</th>
+                <th scope="col">故障恢复</th><th scope="col">平均步数</th>
+                <th scope="col" id="usage-heading">上下文大小</th></tr></thead>
+              <tbody id="metrics"></tbody>
+            </table></div>
+          </section>
+          <section id="policy-learning" class="panel lab-panel" hidden aria-labelledby="policy-title">
+            <div class="panel-title"><h2 id="policy-title">用环境奖励学习刷新策略</h2></div>
+            <p id="policy-result" class="lab-note"></p>
+          </section>
+          <section class="panel lab-panel" aria-labelledby="replay-title">
+            <div class="panel-title"><h2 id="replay-title">任务轨迹回放</h2></div>
+            <div class="lab-controls">
+              <label class="lab-label">任务<select id="case"></select></label>
+              <label class="lab-label">策略<select id="strategy"></select></label>
+            </div>
+            <p id="result" class="lab-note" aria-live="polite"></p>
+            <ol id="steps" class="lab-steps"></ol>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

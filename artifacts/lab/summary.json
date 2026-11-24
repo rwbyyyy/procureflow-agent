@@ -1,0 +1,7451 @@
+{
+  "engines": [
+    "offline-rule"
+  ],
+  "metrics": [
+    {
+      "split": "all",
+      "strategy": "baseline",
+      "episodes": 48,
+      "passed": 8,
+      "recovered": 0,
+      "failure_cases": 40,
+      "mean_actions": 6.5,
+      "context_bytes": 577160,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    {
+      "split": "all",
+      "strategy": "replan-compact",
+      "episodes": 48,
+      "passed": 48,
+      "recovered": 40,
+      "failure_cases": 40,
+      "mean_actions": 11.67,
+      "context_bytes": 462488,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    {
+      "split": "all",
+      "strategy": "replan-full",
+      "episodes": 48,
+      "passed": 48,
+      "recovered": 40,
+      "failure_cases": 40,
+      "mean_actions": 11.67,
+      "context_bytes": 1719232,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    {
+      "split": "dev",
+      "strategy": "baseline",
+      "episodes": 12,
+      "passed": 2,
+      "recovered": 0,
+      "failure_cases": 10,
+      "mean_actions": 6.5,
+      "context_bytes": 144290,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    {
+      "split": "dev",
+      "strategy": "replan-compact",
+      "episodes": 12,
+      "passed": 12,
+      "recovered": 10,
+      "failure_cases": 10,
+      "mean_actions": 11.67,
+      "context_bytes": 115622,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    {
+      "split": "dev",
+      "strategy": "replan-full",
+      "episodes": 12,
+      "passed": 12,
+      "recovered": 10,
+      "failure_cases": 10,
+      "mean_actions": 11.67,
+      "context_bytes": 429808,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    {
+      "split": "test",
+      "strategy": "baseline",
+      "episodes": 12,
+      "passed": 2,
+      "recovered": 0,
+      "failure_cases": 10,
+      "mean_actions": 6.5,
+      "context_bytes": 144290,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    {
+      "split": "test",
+      "strategy": "replan-compact",
+      "episodes": 12,
+      "passed": 12,
+      "recovered": 10,
+      "failure_cases": 10,
+      "mean_actions": 11.67,
+      "context_bytes": 115622,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    {
+      "split": "test",
+      "strategy": "replan-full",
+      "episodes": 12,
+      "passed": 12,
+      "recovered": 10,
+      "failure_cases": 10,
+      "mean_actions": 11.67,
+      "context_bytes": 429808,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    {
+      "split": "train",
+      "strategy": "baseline",
+      "episodes": 24,
+      "passed": 4,
+      "recovered": 0,
+      "failure_cases": 20,
+      "mean_actions": 6.5,
+      "context_bytes": 288580,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    {
+      "split": "train",
+      "strategy": "replan-compact",
+      "episodes": 24,
+      "passed": 24,
+      "recovered": 20,
+      "failure_cases": 20,
+      "mean_actions": 11.67,
+      "context_bytes": 231244,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    },
+    {
+      "split": "train",
+      "strategy": "replan-full",
+      "episodes": 24,
+      "passed": 24,
+      "recovered": 20,
+      "failure_cases": 20,
+      "mean_actions": 11.67,
+      "context_bytes": 859616,
+      "prompt_tokens": 0,
+      "completion_tokens": 0
+    }
+  ],
+  "candidate_count": {
+    "train": 24,
+    "dev": 12,
+    "test": 12
+  },
+  "replays": [
+    {
+      "case_id": "stable-5-0",
+      "scenario": "stable",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "baseline",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2627,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3228,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "status": "draft",
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3582,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 0,
+      "receipt": {
+        "status": "draft",
+        "skus": [
+          "DK-E",
+          "MN-E",
+          "NB-E"
+        ],
+        "total": 42200,
+        "revision": 1
+      },
+      "verdict": {
+        "passed": true,
+        "optimum": 42200,
+        "reason": "optimal_draft"
+      }
+    },
+    {
+      "case_id": "stable-5-0",
+      "scenario": "stable",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-full",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2627,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3228,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "status": "draft",
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3582,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 0,
+      "receipt": {
+        "status": "draft",
+        "skus": [
+          "DK-E",
+          "MN-E",
+          "NB-E"
+        ],
+        "total": 42200,
+        "revision": 1
+      },
+      "verdict": {
+        "passed": true,
+        "optimum": 42200,
+        "reason": "optimal_draft"
+      }
+    },
+    {
+      "case_id": "stable-5-0",
+      "scenario": "stable",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-compact",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 409,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 522,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 856,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1051,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1232,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "status": "draft",
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1295,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 0,
+      "receipt": {
+        "status": "draft",
+        "skus": [
+          "DK-E",
+          "MN-E",
+          "NB-E"
+        ],
+        "total": 42200,
+        "revision": 1
+      },
+      "verdict": {
+        "passed": true,
+        "optimum": 42200,
+        "reason": "optimal_draft"
+      }
+    },
+    {
+      "case_id": "timeout-5-0",
+      "scenario": "timeout",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "baseline",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": false,
+            "revision": 1,
+            "code": "transient_timeout"
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        }
+      ],
+      "stop": "transient_timeout",
+      "replans": 0,
+      "receipt": null,
+      "verdict": {
+        "passed": false,
+        "reason": "no_terminal_action",
+        "optimum": 42200
+      }
+    },
+    {
+      "case_id": "timeout-5-0",
+      "scenario": "timeout",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-full",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": false,
+            "revision": 1,
+            "code": "transient_timeout"
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": true,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2311,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2964,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3565,
+          "tokens": {}
+        },
+        {
+          "step": 8,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "status": "draft",
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3919,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 1,
+      "receipt": {
+        "status": "draft",
+        "skus": [
+          "DK-E",
+          "MN-E",
+          "NB-E"
+        ],
+        "total": 42200,
+        "revision": 1
+      },
+      "verdict": {
+        "passed": true,
+        "optimum": 42200,
+        "reason": "optimal_draft"
+      }
+    },
+    {
+      "case_id": "timeout-5-0",
+      "scenario": "timeout",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-compact",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 409,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 522,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": false,
+            "revision": 1,
+            "code": "transient_timeout"
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": true,
+          "refreshed_keys": [],
+          "context_bytes": 856,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 877,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1072,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1248,
+          "tokens": {}
+        },
+        {
+          "step": 8,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "status": "draft",
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1295,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 1,
+      "receipt": {
+        "status": "draft",
+        "skus": [
+          "DK-E",
+          "MN-E",
+          "NB-E"
+        ],
+        "total": 42200,
+        "revision": 1
+      },
+      "verdict": {
+        "passed": true,
+        "optimum": 42200,
+        "reason": "optimal_draft"
+      }
+    },
+    {
+      "case_id": "stock-5-0",
+      "scenario": "stock",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "baseline",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2627,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3228,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "stock_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3582,
+          "tokens": {}
+        }
+      ],
+      "stop": "stale_quote",
+      "replans": 0,
+      "receipt": null,
+      "verdict": {
+        "passed": false,
+        "reason": "no_terminal_action",
+        "optimum": 46450
+      }
+    },
+    {
+      "case_id": "stock-5-0",
+      "scenario": "stock",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-full",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2627,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3228,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "stock_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": true,
+          "refreshed_keys": [
+            "policy",
+            "budget",
+            "laptop",
+            "monitor",
+            "dock"
+          ],
+          "context_bytes": 3582,
+          "tokens": {}
+        },
+        {
+          "step": 8,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3188,
+          "tokens": {}
+        },
+        {
+          "step": 9,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3691,
+          "tokens": {}
+        },
+        {
+          "step": 10,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 0
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 4093,
+          "tokens": {}
+        },
+        {
+          "step": 11,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 4903,
+          "tokens": {}
+        },
+        {
+          "step": 12,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 5557,
+          "tokens": {}
+        },
+        {
+          "step": 13,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ],
+            "total": 46450
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 6159,
+          "tokens": {}
+        },
+        {
+          "step": 14,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "status": "draft",
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ],
+            "total": 46450
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 6514,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 1,
+      "receipt": {
+        "status": "draft",
+        "skus": [
+          "DK-E",
+          "MN-E",
+          "NB-F"
+        ],
+        "total": 46450,
+        "revision": 2
+      },
+      "verdict": {
+        "passed": true,
+        "optimum": 46450,
+        "reason": "optimal_draft"
+      }
+    },
+    {
+      "case_id": "stock-5-0",
+      "scenario": "stock",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-compact",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 409,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 522,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 856,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1051,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1232,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "stock_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": true,
+          "refreshed_keys": [
+            "policy",
+            "budget",
+            "laptop",
+            "monitor",
+            "dock"
+          ],
+          "context_bytes": 1295,
+          "tokens": {}
+        },
+        {
+          "step": 8,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 504,
+          "tokens": {}
+        },
+        {
+          "step": 9,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 575,
+          "tokens": {}
+        },
+        {
+          "step": 10,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 0
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 601,
+          "tokens": {}
+        },
+        {
+          "step": 11,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 855,
+          "tokens": {}
+        },
+        {
+          "step": 12,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1050,
+          "tokens": {}
+        },
+        {
+          "step": 13,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ],
+            "total": 46450
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1231,
+          "tokens": {}
+        },
+        {
+          "step": 14,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "status": "draft",
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ],
+            "total": 46450
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1294,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 1,
+      "receipt": {
+        "status": "draft",
+        "skus": [
+          "DK-E",
+          "MN-E",
+          "NB-F"
+        ],
+        "total": 46450,
+        "revision": 2
+      },
+      "verdict": {
+        "passed": true,
+        "optimum": 46450,
+        "reason": "optimal_draft"
+      }
+    },
+    {
+      "case_id": "budget-5-0",
+      "scenario": "budget",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "baseline",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2627,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3228,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "budget_and_price_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3582,
+          "tokens": {}
+        }
+      ],
+      "stop": "stale_quote",
+      "replans": 0,
+      "receipt": null,
+      "verdict": {
+        "passed": false,
+        "reason": "no_terminal_action",
+        "optimum": 39800
+      }
+    },
+    {
+      "case_id": "budget-5-0",
+      "scenario": "budget",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-full",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2627,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3228,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "budget_and_price_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": true,
+          "refreshed_keys": [
+            "policy",
+            "budget",
+            "laptop",
+            "monitor",
+            "dock"
+          ],
+          "context_bytes": 3582,
+          "tokens": {}
+        },
+        {
+          "step": 8,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3199,
+          "tokens": {}
+        },
+        {
+          "step": 9,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "available": 39950
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3702,
+          "tokens": {}
+        },
+        {
+          "step": 10,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 6070,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 4104,
+          "tokens": {}
+        },
+        {
+          "step": 11,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 4916,
+          "tokens": {}
+        },
+        {
+          "step": 12,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 5570,
+          "tokens": {}
+        },
+        {
+          "step": 13,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ],
+            "total": 39800
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 6172,
+          "tokens": {}
+        },
+        {
+          "step": 14,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "status": "draft",
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ],
+            "total": 39800
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 6527,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 1,
+      "receipt": {
+        "status": "draft",
+        "skus": [
+          "DK-E",
+          "MN-E",
+          "NB-F"
+        ],
+        "total": 39800,
+        "revision": 2
+      },
+      "verdict": {
+        "passed": true,
+        "optimum": 39800,
+        "reason": "optimal_draft"
+      }
+    },
+    {
+      "case_id": "budget-5-0",
+      "scenario": "budget",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-compact",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 409,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 522,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 856,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1051,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1232,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "budget_and_price_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": true,
+          "refreshed_keys": [
+            "policy",
+            "budget",
+            "laptop",
+            "monitor",
+            "dock"
+          ],
+          "context_bytes": 1295,
+          "tokens": {}
+        },
+        {
+          "step": 8,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 504,
+          "tokens": {}
+        },
+        {
+          "step": 9,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "available": 39950
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 575,
+          "tokens": {}
+        },
+        {
+          "step": 10,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 6070,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 601,
+          "tokens": {}
+        },
+        {
+          "step": 11,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 856,
+          "tokens": {}
+        },
+        {
+          "step": 12,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1051,
+          "tokens": {}
+        },
+        {
+          "step": 13,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ],
+            "total": 39800
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1232,
+          "tokens": {}
+        },
+        {
+          "step": 14,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "status": "draft",
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-F"
+            ],
+            "total": 39800
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1295,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 1,
+      "receipt": {
+        "status": "draft",
+        "skus": [
+          "DK-E",
+          "MN-E",
+          "NB-F"
+        ],
+        "total": 39800,
+        "revision": 2
+      },
+      "verdict": {
+        "passed": true,
+        "optimum": 39800,
+        "reason": "optimal_draft"
+      }
+    },
+    {
+      "case_id": "deadline-5-0",
+      "scenario": "deadline",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "baseline",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2627,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3228,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "deadline_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3582,
+          "tokens": {}
+        }
+      ],
+      "stop": "stale_quote",
+      "replans": 0,
+      "receipt": null,
+      "verdict": {
+        "passed": false,
+        "reason": "no_terminal_action",
+        "optimum": 50230
+      }
+    },
+    {
+      "case_id": "deadline-5-0",
+      "scenario": "deadline",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-full",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2627,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3228,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "deadline_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": true,
+          "refreshed_keys": [
+            "policy",
+            "budget",
+            "laptop",
+            "monitor",
+            "dock"
+          ],
+          "context_bytes": 3582,
+          "tokens": {}
+        },
+        {
+          "step": 8,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "laptop_cap": 9000,
+            "deadline": 2,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3191,
+          "tokens": {}
+        },
+        {
+          "step": 9,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3694,
+          "tokens": {}
+        },
+        {
+          "step": 10,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 4096,
+          "tokens": {}
+        },
+        {
+          "step": 11,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 4908,
+          "tokens": {}
+        },
+        {
+          "step": 12,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 5562,
+          "tokens": {}
+        },
+        {
+          "step": 13,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-F",
+              "MN-F",
+              "NB-F"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "skus": [
+              "DK-F",
+              "MN-F",
+              "NB-F"
+            ],
+            "total": 50230
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 6164,
+          "tokens": {}
+        },
+        {
+          "step": 14,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "status": "draft",
+            "skus": [
+              "DK-F",
+              "MN-F",
+              "NB-F"
+            ],
+            "total": 50230
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 6519,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 1,
+      "receipt": {
+        "status": "draft",
+        "skus": [
+          "DK-F",
+          "MN-F",
+          "NB-F"
+        ],
+        "total": 50230,
+        "revision": 2
+      },
+      "verdict": {
+        "passed": true,
+        "optimum": 50230,
+        "reason": "optimal_draft"
+      }
+    },
+    {
+      "case_id": "deadline-5-0",
+      "scenario": "deadline",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-compact",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 409,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 522,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 856,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1051,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1232,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "deadline_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": true,
+          "refreshed_keys": [
+            "policy",
+            "budget",
+            "laptop",
+            "monitor",
+            "dock"
+          ],
+          "context_bytes": 1295,
+          "tokens": {}
+        },
+        {
+          "step": 8,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "laptop_cap": 9000,
+            "deadline": 2,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 504,
+          "tokens": {}
+        },
+        {
+          "step": 9,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 575,
+          "tokens": {}
+        },
+        {
+          "step": 10,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 601,
+          "tokens": {}
+        },
+        {
+          "step": 11,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 856,
+          "tokens": {}
+        },
+        {
+          "step": 12,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1051,
+          "tokens": {}
+        },
+        {
+          "step": 13,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-F",
+              "MN-F",
+              "NB-F"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "skus": [
+              "DK-F",
+              "MN-F",
+              "NB-F"
+            ],
+            "total": 50230
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1232,
+          "tokens": {}
+        },
+        {
+          "step": 14,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "status": "draft",
+            "skus": [
+              "DK-F",
+              "MN-F",
+              "NB-F"
+            ],
+            "total": 50230
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1295,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 1,
+      "receipt": {
+        "status": "draft",
+        "skus": [
+          "DK-F",
+          "MN-F",
+          "NB-F"
+        ],
+        "total": 50230,
+        "revision": 2
+      },
+      "verdict": {
+        "passed": true,
+        "optimum": 50230,
+        "reason": "optimal_draft"
+      }
+    },
+    {
+      "case_id": "impossible-5-0",
+      "scenario": "impossible",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "baseline",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2627,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3228,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "budget_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3582,
+          "tokens": {}
+        }
+      ],
+      "stop": "stale_quote",
+      "replans": 0,
+      "receipt": null,
+      "verdict": {
+        "passed": false,
+        "reason": "no_terminal_action",
+        "optimum": null
+      }
+    },
+    {
+      "case_id": "impossible-5-0",
+      "scenario": "impossible",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-full",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 762,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1163,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1974,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 2627,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3228,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "budget_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": true,
+          "refreshed_keys": [
+            "policy",
+            "budget",
+            "laptop",
+            "monitor",
+            "dock"
+          ],
+          "context_bytes": 3582,
+          "tokens": {}
+        },
+        {
+          "step": 8,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3189,
+          "tokens": {}
+        },
+        {
+          "step": 9,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "available": 1
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 3692,
+          "tokens": {}
+        },
+        {
+          "step": 10,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 4086,
+          "tokens": {}
+        },
+        {
+          "step": 11,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 4898,
+          "tokens": {}
+        },
+        {
+          "step": 12,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 5552,
+          "tokens": {}
+        },
+        {
+          "step": 13,
+          "action": {
+            "tool": "hold",
+            "argument": "no_feasible_bundle"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "status": "hold",
+            "reason": "no_feasible_bundle"
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 6154,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 1,
+      "receipt": {
+        "status": "hold",
+        "revision": 2,
+        "reason": "no_feasible_bundle"
+      },
+      "verdict": {
+        "passed": true,
+        "reason": "valid_hold",
+        "optimum": null
+      }
+    },
+    {
+      "case_id": "impossible-5-0",
+      "scenario": "impossible",
+      "group": "profile-5",
+      "split": "test",
+      "strategy": "replan-compact",
+      "engine": "offline-rule",
+      "request": {
+        "quantities": {
+          "laptop": 5,
+          "monitor": 6,
+          "dock": 5
+        },
+        "objective": "min_total_cost"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 261,
+          "tokens": {}
+        },
+        {
+          "step": 2,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "available": 57200
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 409,
+          "tokens": {}
+        },
+        {
+          "step": 3,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 522,
+          "tokens": {}
+        },
+        {
+          "step": 4,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 856,
+          "tokens": {}
+        },
+        {
+          "step": 5,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1051,
+          "tokens": {}
+        },
+        {
+          "step": 6,
+          "action": {
+            "tool": "quote",
+            "argument": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "revision": 1,
+            "skus": [
+              "DK-E",
+              "MN-E",
+              "NB-E"
+            ],
+            "total": 42200
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1232,
+          "tokens": {}
+        },
+        {
+          "step": 7,
+          "action": {
+            "tool": "submit",
+            "argument": null
+          },
+          "observation": {
+            "ok": false,
+            "revision": 2,
+            "change": "budget_changed",
+            "code": "stale_quote"
+          },
+          "plan_before": [
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": true,
+          "refreshed_keys": [
+            "policy",
+            "budget",
+            "laptop",
+            "monitor",
+            "dock"
+          ],
+          "context_bytes": 1295,
+          "tokens": {}
+        },
+        {
+          "step": 8,
+          "action": {
+            "tool": "read_policy",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "laptop_cap": 9000,
+            "deadline": 6,
+            "approval": "draft_only"
+          },
+          "plan_before": [
+            "read:policy",
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 504,
+          "tokens": {}
+        },
+        {
+          "step": 9,
+          "action": {
+            "tool": "read_budget",
+            "argument": null
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "available": 1
+          },
+          "plan_before": [
+            "read:budget",
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 575,
+          "tokens": {}
+        },
+        {
+          "step": 10,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "laptop"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "laptop",
+            "items": [
+              {
+                "sku": "NB-E",
+                "category": "laptop",
+                "price": 6550,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "NB-F",
+                "category": "laptop",
+                "price": 7400,
+                "days": 2,
+                "stock": 20
+              },
+              {
+                "sku": "NB-X",
+                "category": "laptop",
+                "price": 9650,
+                "days": 1,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:laptop",
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 597,
+          "tokens": {}
+        },
+        {
+          "step": 11,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "monitor"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "monitor",
+            "items": [
+              {
+                "sku": "MN-E",
+                "category": "monitor",
+                "price": 1250,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "MN-F",
+                "category": "monitor",
+                "price": 1730,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:monitor",
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 852,
+          "tokens": {}
+        },
+        {
+          "step": 12,
+          "action": {
+            "tool": "read_catalog",
+            "argument": "dock"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "category": "dock",
+            "items": [
+              {
+                "sku": "DK-E",
+                "category": "dock",
+                "price": 390,
+                "days": 5,
+                "stock": 20
+              },
+              {
+                "sku": "DK-F",
+                "category": "dock",
+                "price": 570,
+                "days": 2,
+                "stock": 20
+              }
+            ]
+          },
+          "plan_before": [
+            "read:dock",
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1047,
+          "tokens": {}
+        },
+        {
+          "step": 13,
+          "action": {
+            "tool": "hold",
+            "argument": "no_feasible_bundle"
+          },
+          "observation": {
+            "ok": true,
+            "revision": 2,
+            "status": "hold",
+            "reason": "no_feasible_bundle"
+          },
+          "plan_before": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "plan_after": [
+            "quote",
+            "submit_or_hold"
+          ],
+          "replanned": false,
+          "refreshed_keys": [],
+          "context_bytes": 1228,
+          "tokens": {}
+        }
+      ],
+      "stop": "terminal_action",
+      "replans": 1,
+      "receipt": {
+        "status": "hold",
+        "revision": 2,
+        "reason": "no_feasible_bundle"
+      },
+      "verdict": {
+        "passed": true,
+        "reason": "valid_hold",
+        "optimum": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1600
+PlayResY: 1080
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,SimHei,28,&H00FFFFFF,&H00FFFFFF,&H00142B2A,&H00142B2A,0,0,0,0,100,100,0,0,1,0,0,2,30,30,16,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:10.00,Default,,0,0,0,,ProcureFlow 企业采购 Agent · 真实操作节选\N模拟业务数据；已删去部分等待时间；无真实采购与付款
+Dialogue: 0,0:00:10.00,0:00:32.00,Default,,0,0,0,,01 自然语言需求 → DeepSeek 自主选择工具\N制度检索 / 商品比较 / 部门预算 → 采购建议
+Dialogue: 0,0:00:32.00,0:00:59.00,Default,,0,0,0,,02 从申请身份切换至独立审批人\N申请人不能自批；模型无法绕过人工审批
+Dialogue: 0,0:00:59.00,0:01:09.00,Default,,0,0,0,,03 服务已重启，同一任务与检查点仍然保留\N使用 LangGraph SQLite Checkpointer 保存人工中断状态
+Dialogue: 0,0:01:09.00,0:01:42.00,Default,,0,0,0,,04 批准后继续执行 → 本地模拟订单\N预算由 30,000 元变为 6,003 元；事务重新校验预算与库存
+Dialogue: 0,0:01:42.00,0:02:03.00,Default,,0,0,0,,05 切换至 Nova 组织，无法读取 Atlas 的任务\N本地工程原型 · 角色与组织隔离 · 12 项功能测试通过

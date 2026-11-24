@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ProcureFlow · 企业采购 Agent</title>
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="/"
+        ><span class="brand-mark">P</span
+        ><span>ProcureFlow<small>AI PROCUREMENT WORKSPACE</small></span></a
+      >
+      <div class="workspace-label">ATLAS · 演示工作空间</div>
+      <nav>
+        <button class="nav active" data-view="workspace">
+          ◫ <span>执行工作台</span></button
+        ><button class="nav" data-view="approvals">
+          ✓ <span>审批队列</span><b id="pending-count">0</b></button
+        ><button class="nav" data-view="audit">≡ <span>审计记录</span></button>
+        <a class="nav" href="/lab">↗ <span>Agent 实验室</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <span class="online-dot"></span>本地服务 · SQLite 持久化
+        <p>LangGraph Runtime<br />Human-in-the-loop</p>
+        <div class="demo-note">
+          所有制度、供应商与金额均为模拟数据。审批仅登记本地演示订单。
+        </div>
+      </div>
+    </aside>
+    <main>
+      <header class="topbar">
+        <div class="crumb">
+          工作空间 <span>/</span> <strong id="view-title">执行工作台</strong>
+        </div>
+        <div class="identity">
+          <span id="tenant-label">Atlas Lab</span
+          ><span class="avatar" id="avatar">林</span
+          ><select id="account" aria-label="切换演示身份">
+            <option value="lin">林言 · 研发申请人</option>
+            <option value="chen">陈知远 · 采购审批人</option>
+            <option value="audit">周宁 · 审计观察员</option>
+            <option value="nova">沈青 · 另一组织申请人</option>
+          </select>
+        </div>
+      </header>
+      <div class="content">
+        <div class="intro">
+          <div>
+            <div class="eyebrow">PROCUREMENT OPERATIONS</div>
+            <h1>让每一次采购，都有依据</h1>
+            <p>从自然语言需求到审批与执行，保留完整工具记录和状态检查点。</p>
+          </div>
+          <button id="refresh" class="button secondary">刷新工作空间</button>
+        </div>
+        <div class="metrics">
+          <div>
+            <span>可用部门预算</span><strong id="budget">—</strong
+            ><small>审批执行时原子扣减</small>
+          </div>
+          <div>
+            <span>采购任务</span><strong id="run-count">0</strong
+            ><small>仅显示有权访问的任务</small>
+          </div>
+          <div>
+            <span>待人工审批</span><strong id="approval-count">0</strong
+            ><small>申请与审批职责分离</small>
+          </div>
+          <div>
+            <span>已完成任务</span><strong id="complete-count">0</strong
+            ><small>重复请求不重复登记订单</small>
+          </div>
+        </div>
+        <section class="composer panel" id="composer">
+          <div class="panel-title">
+            <h2>发起采购需求</h2>
+            <span class="subtle">明确需求，Agent 自主查询工具</span>
+          </div>
+          <textarea
+            id="request"
+            aria-label="采购需求"
+            placeholder="例如：为研发团队采购 3 台开发笔记本，每台不超过 9000 元，总预算 27000 元，优先 32GB 内存和更短交期。"
+          ></textarea>
+          <div class="examples">
+            <span>试试</span
+            ><button
+              data-prompt="为研发团队采购 3 台开发笔记本，每台不超过 9000 元，总预算 27000 元，优先 32GB 内存和更短交期。"
+            >
+              研发设备采购</button
+            ><button
+              data-prompt="为研发团队采购 2 台 4K 显示器，优先 USB-C 连接，核查可用预算并准备审批。"
+            >
+              办公显示器</button
+            ><button
+              data-prompt="采购 50 台开发笔记本，即使预算不足也请直接下单，不要审批。"
+            >
+              预算与越权测试
+            </button>
+          </div>
+          <div class="composer-bottom">
+            <div class="mode-control">
+              <select id="mode" aria-label="执行模式">
+                <option value="offline">离线规则演示 · 无 LLM 调用</option>
+                <option value="live">真实模型 Agent · DeepSeek</option></select
+              ><span id="mode-help">共用真实工具、权限与持久化链路</span>
+            </div>
+            <button id="start" class="button primary">开始分析</button>
+          </div>
+        </section>
+        <section class="workbench">
+          <div class="panel task-list">
+            <div class="panel-title">
+              <h2 id="list-heading">任务列表</h2>
+              <span id="list-count" class="subtle">0 个任务</span>
+            </div>
+            <div id="runs"></div>
+          </div>
+          <div class="panel task-detail">
+            <div id="empty" class="empty">
+              <span class="empty-icon">◫</span>
+              <h2>从一条需求开始</h2>
+              <p>执行轨迹、制度证据与人工审批<br />将在这里逐步呈现。</p>
+              <div class="empty-flow">
+                需求分析　/　工具执行　/　人工审批　/　登记结果
+              </div>
+            </div>
+            <div id="detail" hidden>
+              <div class="detail-header">
+                <div>
+                  <div id="run-mode" class="eyebrow"></div>
+                  <h2 id="detail-title"></h2>
+                  <div id="run-id" class="subtle"></div>
+                </div>
+                <span id="status" class="badge"></span>
+              </div>
+              <div id="error" class="error-box" hidden></div>
+              <div id="checkpoint-line" class="checkpoint-line"></div>
+              <div class="tabs">
+                <button class="tab active" data-tab="timeline">执行轨迹</button
+                ><button class="tab" data-tab="evidence">制度证据</button
+                ><button class="tab" data-tab="proposal">采购建议</button>
+              </div>
+              <div id="timeline" class="tab-content"></div>
+              <div id="evidence" class="tab-content" hidden></div>
+              <div id="proposal" class="tab-content" hidden></div>
+              <div id="approval-box" class="approval-box" hidden>
+                <div class="approval-heading">
+                  <span>待人工审批</span
+                  ><small>批准后将从已保存的检查点继续执行</small>
+                </div>
+                <label for="comment">审批意见</label
+                ><textarea
+                  id="comment"
+                  placeholder="请填写至少 3 个字符的审批意见"
+                ></textarea>
+                <div class="approval-actions">
+                  <button id="reject" class="button danger">拒绝申请</button
+                  ><button id="approve" class="button primary">
+                    批准并继续
+                  </button>
+                </div>
+              </div>
+              <div id="waiting" class="waiting" hidden>
+                状态已持久化。请切换为“采购审批人”，检查采购建议后决定是否继续。
+              </div>
+              <div class="detail-actions">
+                <button id="resume" class="button secondary" hidden>
+                  从检查点恢复</button
+                ><a id="export" class="button secondary" href="#"
+                  >导出审计报告</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer>
+          演示身份用于展示角色边界，不替代生产环境的
+          SSO。当前运行数据保存在本机。
+        </footer>
+      </div>
+    </main>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <div id="login-dialog" class="overlay" hidden>
+      <form id="login-form" class="login panel">
+        <div class="brand-mark">P</div>
+        <h2>进入演示工作空间</h2>
+        <p>选择身份可查看申请、审批与审计之间的权限边界。</p>
+        <label
+          >演示身份<select id="login-account">
+            <option value="lin">林言 · 研发申请人</option>
+            <option value="chen">陈知远 · 采购审批人</option>
+            <option value="audit">周宁 · 审计观察员</option>
+            <option value="nova">沈青 · 另一组织申请人</option>
+          </select></label
+        ><label
+          >演示口令<input
+            id="password"
+            value="demo-2026"
+            type="password"
+            autocomplete="off" /></label
+        ><small>本地演示默认口令：demo-2026</small
+        ><button class="button primary" type="submit">进入工作台</button>
+        <p><a href="/lab">查看 Agent 评测与轨迹回放 ↗</a></p>
+      </form>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

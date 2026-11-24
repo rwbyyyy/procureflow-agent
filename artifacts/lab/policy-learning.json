@@ -1,0 +1,673 @@
+{
+  "seed": 2026,
+  "epochs": 5,
+  "training_groups": [
+    "profile-2",
+    "profile-4"
+  ],
+  "holdout_groups": [
+    "profile-5"
+  ],
+  "policy": {
+    "budget_and_price_changed": "laptop",
+    "budget_changed": "budget",
+    "deadline_changed": "policy",
+    "stock_changed": "laptop"
+  },
+  "holdout": {
+    "full_refresh": {
+      "passed": 8,
+      "episodes": 8,
+      "mean_actions": 13.75,
+      "mean_reward": 0.588
+    },
+    "learned_refresh": {
+      "passed": 8,
+      "episodes": 8,
+      "mean_actions": 9.75,
+      "mean_reward": 0.708
+    }
+  },
+  "updates": [
+    {
+      "epoch": 1,
+      "case": "stock-2-0",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 1,
+      "case": "impossible-4-0",
+      "context": "budget_changed",
+      "action": "all",
+      "reward": 0.61,
+      "estimate": 0.61
+    },
+    {
+      "epoch": 1,
+      "case": "deadline-2-0",
+      "context": "deadline_changed",
+      "action": "budget_and_laptop",
+      "reward": -1.36,
+      "estimate": -1.36
+    },
+    {
+      "epoch": 1,
+      "case": "budget-4-0",
+      "context": "budget_and_price_changed",
+      "action": "all",
+      "reward": 0.58,
+      "estimate": 0.58
+    },
+    {
+      "epoch": 1,
+      "case": "deadline-4-1",
+      "context": "deadline_changed",
+      "action": "all",
+      "reward": 0.58,
+      "estimate": 0.58
+    },
+    {
+      "epoch": 1,
+      "case": "stock-2-1",
+      "context": "stock_changed",
+      "action": "budget",
+      "reward": -1.33,
+      "estimate": -1.33
+    },
+    {
+      "epoch": 1,
+      "case": "impossible-2-1",
+      "context": "budget_changed",
+      "action": "laptop",
+      "reward": -1.33,
+      "estimate": -1.33
+    },
+    {
+      "epoch": 1,
+      "case": "deadline-2-1",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 1,
+      "case": "stock-4-1",
+      "context": "stock_changed",
+      "action": "all",
+      "reward": 0.58,
+      "estimate": 0.58
+    },
+    {
+      "epoch": 1,
+      "case": "impossible-4-1",
+      "context": "budget_changed",
+      "action": "budget_and_laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 1,
+      "case": "budget-2-0",
+      "context": "budget_and_price_changed",
+      "action": "budget_and_laptop",
+      "reward": 0.67,
+      "estimate": 0.67
+    },
+    {
+      "epoch": 1,
+      "case": "deadline-4-0",
+      "context": "deadline_changed",
+      "action": "budget",
+      "reward": -1.33,
+      "estimate": -1.33
+    },
+    {
+      "epoch": 1,
+      "case": "budget-4-1",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 1,
+      "case": "stock-4-0",
+      "context": "stock_changed",
+      "action": "budget_and_laptop",
+      "reward": 0.67,
+      "estimate": 0.67
+    },
+    {
+      "epoch": 1,
+      "case": "budget-2-1",
+      "context": "budget_and_price_changed",
+      "action": "budget",
+      "reward": -1.27,
+      "estimate": -1.27
+    },
+    {
+      "epoch": 1,
+      "case": "impossible-2-0",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 2,
+      "case": "impossible-2-0",
+      "context": "budget_changed",
+      "action": "policy",
+      "reward": -1.33,
+      "estimate": -1.33
+    },
+    {
+      "epoch": 2,
+      "case": "stock-2-0",
+      "context": "stock_changed",
+      "action": "policy",
+      "reward": -1.33,
+      "estimate": -1.33
+    },
+    {
+      "epoch": 2,
+      "case": "impossible-2-1",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 2,
+      "case": "deadline-4-1",
+      "context": "deadline_changed",
+      "action": "laptop",
+      "reward": -1.33,
+      "estimate": -1.33
+    },
+    {
+      "epoch": 2,
+      "case": "deadline-2-0",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 2,
+      "case": "budget-4-1",
+      "context": "budget_and_price_changed",
+      "action": "policy",
+      "reward": -1.33,
+      "estimate": -1.33
+    },
+    {
+      "epoch": 2,
+      "case": "stock-2-1",
+      "context": "stock_changed",
+      "action": "budget_and_laptop",
+      "reward": 0.67,
+      "estimate": 0.67
+    },
+    {
+      "epoch": 2,
+      "case": "budget-4-0",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 2,
+      "case": "budget-2-1",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 2,
+      "case": "budget-2-0",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 2,
+      "case": "deadline-4-0",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 2,
+      "case": "stock-4-0",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 2,
+      "case": "impossible-4-1",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 2,
+      "case": "deadline-2-1",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 2,
+      "case": "stock-4-1",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 2,
+      "case": "impossible-4-0",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 3,
+      "case": "budget-4-1",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "deadline-2-1",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "budget-2-0",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "deadline-4-0",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "impossible-2-1",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 3,
+      "case": "stock-2-1",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "budget-2-1",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "impossible-4-0",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 3,
+      "case": "deadline-2-0",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "impossible-2-0",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 3,
+      "case": "budget-4-0",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "stock-2-0",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "stock-4-1",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "deadline-4-1",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "stock-4-0",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 3,
+      "case": "impossible-4-1",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 4,
+      "case": "deadline-4-0",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 4,
+      "case": "stock-4-1",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 4,
+      "case": "budget-2-1",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 4,
+      "case": "deadline-4-1",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 4,
+      "case": "deadline-2-1",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 4,
+      "case": "budget-2-0",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 4,
+      "case": "budget-4-0",
+      "context": "budget_and_price_changed",
+      "action": "budget_and_laptop",
+      "reward": 0.67,
+      "estimate": 0.67
+    },
+    {
+      "epoch": 4,
+      "case": "stock-4-0",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 4,
+      "case": "impossible-2-1",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 4,
+      "case": "deadline-2-0",
+      "context": "deadline_changed",
+      "action": "budget",
+      "reward": -1.33,
+      "estimate": -1.33
+    },
+    {
+      "epoch": 4,
+      "case": "impossible-4-0",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 4,
+      "case": "stock-2-0",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 4,
+      "case": "impossible-4-1",
+      "context": "budget_changed",
+      "action": "policy",
+      "reward": -1.33,
+      "estimate": -1.33
+    },
+    {
+      "epoch": 4,
+      "case": "stock-2-1",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 4,
+      "case": "impossible-2-0",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 4,
+      "case": "budget-4-1",
+      "context": "budget_and_price_changed",
+      "action": "budget",
+      "reward": -1.27,
+      "estimate": -1.27
+    },
+    {
+      "epoch": 5,
+      "case": "deadline-2-1",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 5,
+      "case": "impossible-2-0",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 5,
+      "case": "deadline-2-0",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 5,
+      "case": "impossible-4-0",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 5,
+      "case": "budget-2-1",
+      "context": "budget_and_price_changed",
+      "action": "policy",
+      "reward": -1.33,
+      "estimate": -1.33
+    },
+    {
+      "epoch": 5,
+      "case": "deadline-4-0",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 5,
+      "case": "impossible-4-1",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 5,
+      "case": "stock-4-1",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 5,
+      "case": "stock-4-0",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 5,
+      "case": "budget-4-0",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 5,
+      "case": "deadline-4-1",
+      "context": "deadline_changed",
+      "action": "policy",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 5,
+      "case": "budget-4-1",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 5,
+      "case": "budget-2-0",
+      "context": "budget_and_price_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    },
+    {
+      "epoch": 5,
+      "case": "stock-2-0",
+      "context": "stock_changed",
+      "action": "budget_and_laptop",
+      "reward": 0.67,
+      "estimate": 0.67
+    },
+    {
+      "epoch": 5,
+      "case": "impossible-2-1",
+      "context": "budget_changed",
+      "action": "budget",
+      "reward": 0.73,
+      "estimate": 0.73
+    },
+    {
+      "epoch": 5,
+      "case": "stock-2-1",
+      "context": "stock_changed",
+      "action": "laptop",
+      "reward": 0.7,
+      "estimate": 0.7
+    }
+  ]
+}

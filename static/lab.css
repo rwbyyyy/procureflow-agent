@@ -1,0 +1,18 @@
+.lab-navigation { margin-top: 44px; }
+.lab-panel { padding: 24px; margin-bottom: 24px; }
+.lab-controls { display: flex; flex-wrap: wrap; gap: 12px; }
+.lab-label { display: flex; align-items: center; gap: 8px; color: #405451; font-size: 13px; }
+.lab-label select { border: 1px solid var(--border); border-radius: 6px; background: white;
+  padding: 8px; color: #142b2a; }
+.lab-note { color: #405451; line-height: 1.7; font-size: 14px; }
+.table-scroll { overflow-x: auto; }
+.lab-panel table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+.lab-panel th, .lab-panel td { padding: 13px 12px; border-bottom: 1px solid var(--border);
+  white-space: nowrap; }
+.lab-panel th { background: #eef5f2; color: #284644; }
+.lab-steps { margin-bottom: 0; padding-left: 26px; }
+.lab-steps li { padding: 8px 0; border-top: 1px solid var(--border); }
+.lab-steps summary { cursor: pointer; padding: 5px; font-size: 14px; }
+.lab-steps pre { padding: 12px; background: #f2f6f4; overflow: auto; max-height: 320px; }
+.lab-steps .replanned { color: #875015; font-weight: 650; }
+@media (max-width: 720px) { .lab-navigation { margin-top: 14px; } .lab-panel { padding: 14px; } }
